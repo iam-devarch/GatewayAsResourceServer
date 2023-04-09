@@ -1,3 +1,8 @@
+# Prerequisites
+* Keycloak server
+* Java 8+
+* Postman or SoapUI (For ease of API calls)
+
 # Setup Project Infra
 In our case, we’ll use the Keycloak identity provider. We have to set up following things in keycloak after installation.
 
@@ -29,4 +34,16 @@ In our case, we’ll use the Keycloak identity provider. We have to set up follo
 5. It'll be successfully authorized to redirect after you use returned access_token in the header _Authorization_ with prefix _Bearer_ to call endpoint under this api gateway (resource server).
 Ignore the error as our gateway is redirecting it to the server which is not running currently.
 ![img_6.png](README_resources/img_6.png)
+
+### Reference Documentation
+For further reference, please consider the following sections:
+
+* [Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/)
+* [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/3.0.4/reference/htmlsingle/#actuator)
+
+### Guides
+The following guides illustrate how to use some features concretely:
+
+* [Using Spring Cloud Gateway](https://github.com/spring-cloud-samples/spring-cloud-gateway-sample)
+* [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
 
