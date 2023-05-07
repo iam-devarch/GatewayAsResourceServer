@@ -33,8 +33,11 @@ class GatewayAsResourceServerApplicationTests {
 
 	@DynamicPropertySource
 	static void dynamicProperties(DynamicPropertyRegistry registry) {
-		registry.add("backend.services.url.conditional", () -> "http://localhost:" + wireMockServer.port());
-		registry.add("backend.services.url.global", () -> "http://localhost:" + wireMockServer.port());
+		registry.add("backend.services.url.conditional", () ->  String.format("http://localhost:%s", wireMockServer.port() ));
+		registry.add("backend.services.url.global", () ->  String.format("http://localhost:%s", wireMockServer.port() ));
+		registry.add("spring.cloud.gateway.routes[0].id", () ->  "resource-server" );
+		registry.add("spring.cloud.gateway.routes[0].predicates[0]", () ->  "Path=/hello/**" );
+		registry.add("spring.cloud.gateway.routes[0].uri", () ->  String.format("http://localhost:%s", wireMockServer.port() ));
 	}
 
 	@BeforeAll
@@ -62,6 +65,24 @@ class GatewayAsResourceServerApplicationTests {
 
 		response.expectStatus()
 				.isUnauthorized();
+	}
+
+	@Test
+	@WithMockUser
+	public void whenCallHelloServiceWithLogin_thenSuccess() {
+
+		stubFor(WireMock.get(urlMatching("/hello/get/resource"))
+				.willReturn(aResponse()
+						.withStatus(OK.value())
+						.withBody("Test Body")));
+
+		WebTestClient.ResponseSpec response = client.get()
+				.uri("/hello/get/resource")
+				.exchange();
+
+		response.expectStatus()
+				.isOk()
+				.expectBody(String.class).isEqualTo("Test Body");
 	}
 
 	@Test

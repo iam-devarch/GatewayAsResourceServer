@@ -12,7 +12,7 @@ public class SecurityConfiguration {
     @Bean
     public SecurityWebFilterChain filterChain(ServerHttpSecurity http) throws Exception {
         ServerHttpSecurity.OAuth2ResourceServerSpec.JwtSpec jwt = http.authorizeExchange()
-                .pathMatchers("/global/**", "/conditional/**").authenticated()
+                .pathMatchers("/global/**", "/conditional/**", "/hello/**").authenticated()
                 .and()
                 .oauth2ResourceServer()
                 .jwt();
