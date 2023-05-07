@@ -6,6 +6,8 @@
 # Setup Project Infra
 In our case, we’ll use the Keycloak identity provider. We have to set up following things in keycloak after installation.
 
+(If server startup fails try deleting file `keycloakdb.lock.db` from location keycloak home location `<keycloak-home>\data\h2`)
+
 1. Start Keyclooak server locally 
 ![img_8.png](README_resources/img_8.png)
 
