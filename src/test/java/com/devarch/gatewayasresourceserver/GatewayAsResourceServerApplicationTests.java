@@ -1,4 +1,4 @@
-package com.example.gatewayasresourceserver;
+package com.devarch.gatewayasresourceserver;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;

@@ -1,6 +1,6 @@
-package com.example.gatewayasresourceserver.config;
+package com.devarch.gatewayasresourceserver.config;
 
-import com.example.gatewayasresourceserver.filters.ConditionalGatewayFilter;
+import com.devarch.gatewayasresourceserver.filters.ConditionalGatewayFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;

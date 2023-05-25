@@ -1,8 +1,7 @@
-package com.example.gatewayasresourceserver;
+package com.devarch.gatewayasresourceserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
 @SpringBootApplication
 public class GatewayAsResourceServerApplication {
