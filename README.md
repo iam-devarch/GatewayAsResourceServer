@@ -1,7 +1,13 @@
-# Prerequisites
+# Prerequisites / Tech Stack
 * Keycloak server
+* Spring Cloud gateway
 * Java 8+
 * Postman or SoapUI (For ease of API calls)
+
+# Functionality
+This project showcases spring cloud gateway's ability to act as resource server.  
+The gateway component intecepts the requests coming in from client and validates oAuth2 token on keycloak IDP.  
+spring-boot-starter-oauth2-resource-server is used to intercept and validate oAuth2 tokens on each request.  
 
 # Setup Project Infra
 In our case, we’ll use the Keycloak identity provider. We have to set up following things in keycloak after installation.
